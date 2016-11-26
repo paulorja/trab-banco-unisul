@@ -13,12 +13,12 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: 5
-  username: root
-  password:
   socket: /var/run/mysqld/mysqld.sock
 
 development:
   <<: *default
+  username: banco-prog-web-dev
+  password: 123456
   database: trab-banco-unisul_development
 
 # Warning: The database defined as "test" will be erased and
