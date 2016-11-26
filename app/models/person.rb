@@ -1,5 +1,5 @@
 class Person < ActiveRecord::Base
 
-  enum tipo: [:fisica, :juridica]
+  enum tipo: [:physical, :legal]
 
 end
