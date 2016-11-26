@@ -1,0 +1,7 @@
+= form_tag auth_manager_path do
+  %h3 Gerente
+  = label_tag :login
+  = text_field_tag :login
+  = label_tag :senha
+  = password_field_tag :senha
+  = submit_tag 'Entrar'
