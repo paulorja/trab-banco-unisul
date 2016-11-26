@@ -1,0 +1,25 @@
+= render 'manager/navigation'
+
+%h1 Listing agencies
+
+%table
+  %thead
+    %tr
+      %th Nome
+      %th Número
+      %th
+      %th
+      %th
+
+  %tbody
+    - @agencies.each do |agency|
+      %tr
+        %td= agency.nome
+        %td= agency.numero
+        %td= link_to 'Show', agency
+        %td= link_to 'Edit', edit_agency_path(agency)
+        %td= link_to 'Destroy', agency, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Agency', new_agency_path

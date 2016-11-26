@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'peson/index'
 
   # Auth
   root 'visitors#index'
@@ -14,5 +13,8 @@ Rails.application.routes.draw do
 
   # Person
   match 'person', to: 'person#index', via: :get
+
+  # Agency
+  resources :agencies
 
 end
