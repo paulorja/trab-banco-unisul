@@ -1,6 +1,6 @@
 class AccountsController < ApplicationController
 
-  before_action :authorize_manager
+  before_action :authorize_manager, except: :show
   before_action :set_account, only: [:show, :edit, :update, :destroy]
 
   def index

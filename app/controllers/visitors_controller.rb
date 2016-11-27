@@ -6,6 +6,7 @@ class VisitorsController < ApplicationController
 
   def manager
     if manager = Manager.where(login: params[:login], senha: params[:senha]).first
+      session[:person_id] = nil
       session[:manager_id] = manager.id
       redirect_to manager_path
     else
@@ -15,8 +16,9 @@ class VisitorsController < ApplicationController
 
   def legal_person
     if lp = LegalPerson.find_by_cnpj(params[:cnpj])
+      session[:manager_id] = nil
       session[:person_id] = lp.id
-      flash[:notice] = 'Autorizado'
+      redirect_to person_path
     else
       not_authorized
     end
@@ -25,7 +27,7 @@ class VisitorsController < ApplicationController
   def physical_person
     if pp = PhysicalPerson.find_by_cpf(params[:cpf])
       session[:person_id] = pp.id
-      flash[:notice] = 'Autorizado'
+      redirect_to person_path
     else
       not_authorized
     end
