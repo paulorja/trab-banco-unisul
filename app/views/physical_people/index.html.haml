@@ -1,0 +1,25 @@
+= render 'manager/navigation'
+
+%h1 Listing physical_people
+
+%table
+  %thead
+    %tr
+      %th Nome
+      %th CPF
+      %th
+      %th
+      %th
+
+  %tbody
+    - @physical_people.each do |physical_person|
+      %tr
+        %td= physical_person.nome
+        %td= physical_person.cpf
+        %td= link_to 'Show', physical_person
+        %td= link_to 'Edit', edit_physical_person_path(physical_person)
+        %td= link_to 'Destroy', physical_person, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Physical person', new_physical_person_path

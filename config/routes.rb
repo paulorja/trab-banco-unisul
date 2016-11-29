@@ -20,4 +20,10 @@ Rails.application.routes.draw do
   # Account
   resources :accounts
 
+  # Physical Person
+  resources :physical_people
+
+  # Legal Person
+  resources :legal_people
+
 end

@@ -1,0 +1,17 @@
+= form_for @legal_person do |f|
+  - if @legal_person.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@legal_person.errors.count, "error")} prohibited this legal_person from being saved:"
+      %ul
+        - @legal_person.errors.full_messages.each do |msg|
+          %li= msg
+  %div
+    = f.label :nome, 'Nome Fantasia: '
+    = f.text_field :nome
+  %div
+    = f.label :cnpj, 'CNPJ: '
+    = f.text_field :cnpj
+
+
+  .actions
+    = f.submit 'Save'

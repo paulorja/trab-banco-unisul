@@ -1,0 +1,25 @@
+= render 'manager/navigation'
+
+%h1 Listing legal_people
+
+%table
+  %thead
+    %tr
+      %th Nome Fantasia
+      %th CNPJ
+      %th
+      %th
+      %th
+
+  %tbody
+    - @legal_people.each do |legal_person|
+      %tr
+        %td= legal_person.nome
+        %td= legal_person.cnpj
+        %td= link_to 'Show', legal_person
+        %td= link_to 'Edit', edit_legal_person_path(legal_person)
+        %td= link_to 'Destroy', legal_person, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Legal person', new_legal_person_path
