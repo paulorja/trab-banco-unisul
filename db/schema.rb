@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(version: 20161126154123) do
 
   create_table "accounts", force: :cascade do |t|
     t.integer  "tipo",              limit: 4
-    t.integer  "numero",            limit: 4
     t.integer  "agency_id",         limit: 4
     t.integer  "person_id",         limit: 4
     t.float    "saldo",             limit: 24

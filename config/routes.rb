@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-
   # Auth
   root 'visitors#index'
   match 'auth/manager', to: 'visitors#manager', via: :post
@@ -25,5 +24,10 @@ Rails.application.routes.draw do
 
   # Legal Person
   resources :legal_people
+
+  # Address
+  match 'addresses/:id', to: 'addresses#show', via: :get, as: :address
+  match 'addresses/:id/edit', to: 'addresses#edit', via: :get, as: :edit_address
+  match 'addresses/:id', to: 'addresses#update', via: :patch, as: :update_address
 
 end
