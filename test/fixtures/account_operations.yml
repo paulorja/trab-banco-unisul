@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  account_id: 
+  person_id: 
+  amount: 1.5
+  tipo: 1
+
+two:
+  account_id: 
+  person_id: 
+  amount: 1.5
+  tipo: 1

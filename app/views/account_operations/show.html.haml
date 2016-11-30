@@ -1,0 +1,14 @@
+%p#notice= notice
+
+%p
+  %b Account:
+  = @account_operation.account.id
+%p
+  %b Person:
+  = @account_operation.person.get_account_name
+%p
+  %b Amount:
+  = @account_operation.amount
+%p
+  %b Tipo:
+  = @account_operation.tipo

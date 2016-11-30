@@ -1,0 +1,21 @@
+= form_for @account_operation, url: save_account_operation_path do |f|
+  - if @account_operation.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@account_operation.errors.count, "error")} prohibited this account_operation from being saved:"
+      %ul
+        - @account_operation.errors.full_messages.each do |msg|
+          %li= msg
+
+  = hidden_field_tag 'account_operation[person_id]', session[:person_id]
+  = hidden_field_tag 'account_operation[account_id]', params[:account_id]
+
+  .field
+    = f.label :tipo
+    = f.select :tipo, options_for_select(operation_options, params[:tipo])
+  .field
+    = f.label :amount, 'Valor'
+    = f.text_field :amount
+
+  .actions
+    = f.submit 'Save'
+    = link_to 'Voltar', account_path(params[:account_id])

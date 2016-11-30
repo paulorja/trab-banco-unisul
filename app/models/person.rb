@@ -12,8 +12,8 @@ class Person < ActiveRecord::Base
   end
 
   def get_account_name
-    return legal_person.name if legal?
-    physical_person.name if physical?
+    return legal_person.nome if legal?
+    physical_person.nome if physical?
   end
 
 

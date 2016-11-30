@@ -13,7 +13,14 @@ class Account < ActiveRecord::Base
     if address.cidade.blank? or address.cep.blank? or address.rua.blank? or address.uf.blank? or address.numero.blank?
       errors.add(:incomplete_address, 'Endereço incompleto')
     end
+  end
 
+  def last_operations
+    AccountOperation
+        .includes(person: [:physical_person, :legal_person])
+        .where(account_id: id)
+        .order(created_at: :desc)
+        .limit(10)
   end
 
 end

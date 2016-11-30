@@ -19,6 +19,11 @@ Rails.application.routes.draw do
   # Account
   resources :accounts
 
+  # Account Operation
+  match '/account_operations/new/:account_id/:tipo', to: 'account_operations#new', via: :get, as: :new_account_operation
+  match '/account_operations/', to: 'account_operations#create', via: :post, as: :save_account_operation
+  match '/account_operations/:id', to: 'account_operations#show', via: :get, as: :account_operations
+
   # Physical Person
   resources :physical_people
 
