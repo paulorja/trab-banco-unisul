@@ -17,7 +17,7 @@ class VisitorsController < ApplicationController
   def legal_person
     if lp = LegalPerson.find_by_cnpj(params[:cnpj])
       session[:manager_id] = nil
-      session[:person_id] = lp.id
+      session[:person_id] = lp.person.id
       redirect_to person_path
     else
       not_authorized
@@ -26,7 +26,7 @@ class VisitorsController < ApplicationController
 
   def physical_person
     if pp = PhysicalPerson.find_by_cpf(params[:cpf])
-      session[:person_id] = pp.id
+      session[:person_id] = pp.person.id
       redirect_to person_path
     else
       not_authorized

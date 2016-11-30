@@ -1,9 +1,8 @@
 = render 'navigation'
 
-%h1 Bem vindo ao banco
+%h1= "Bem vindo ao banco #{@person.get_account_name}"
 
 %h3 Suas contas
-
 
 %table
   %tr
