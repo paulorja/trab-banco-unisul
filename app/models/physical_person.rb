@@ -4,6 +4,7 @@ class PhysicalPerson < ActiveRecord::Base
 
   before_create :set_physical, :set_address
 
+  validates :nome, length: { minimum: 3, maximum: 200 }
   validates :cpf, length: { minimum: 9, maximum: 9 }
   validates :cpf, uniqueness: true
 

@@ -4,7 +4,9 @@ class LegalPerson < ActiveRecord::Base
 
   before_create :set_physical, :set_address
 
-  validates :cnpj, length: { minimum: 9, maximum: 9 }
+  validates :nome, length: { minimum: 3, maximum: 200 }
+  validates :cnpj, length: { minimum: 13, maximum: 13 }
+  validates :cnpj, uniqueness: true
 
   def set_physical
     self.person = Person.create!(tipo: Person.tipos[:legal])
