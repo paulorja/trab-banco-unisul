@@ -1,6 +1,6 @@
 = render 'manager/navigation'
 
-%h1 Listing accounts
+%h1 Contas
 
 %table
   %thead
@@ -18,10 +18,10 @@
         %td= ac_number account
         %td= ac_type account
         %td= account.agency.nome
-        %td= link_to 'Show', account
-        %td= link_to 'Edit', edit_account_path(account)
-        %td= link_to 'Destroy', account, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= link_to 'Visualizar', account
+        %td= link_to 'Editar', edit_account_path(account)
+        %td= link_to 'Excluir', account, :method => :delete, :data => { :confirm => 'Você tem certeza?' }
 
 %br
 
-= link_to 'New Account', new_account_path
+= link_to 'Abrir Conta', new_account_path

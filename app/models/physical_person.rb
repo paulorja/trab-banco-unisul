@@ -5,6 +5,7 @@ class PhysicalPerson < ActiveRecord::Base
   before_create :set_physical, :set_address
 
   validates :cpf, length: { minimum: 9, maximum: 9 }
+  validates :cpf, uniqueness: true
 
   def set_physical
     self.person = Person.create!(tipo: Person.tipos[:physical])

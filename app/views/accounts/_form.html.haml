@@ -2,7 +2,7 @@
   - if @account.errors.any?
     #error_explanation
       %h2= "#{pluralize(@account.errors.count, "error")} prohibited this account from being saved:"
-      %ul
+      %u
         - @account.errors.full_messages.each do |msg|
           %li= msg
   %div
@@ -16,6 +16,7 @@
   %div
     = f.label :person_id, 'Pessoa'
     = f.select :person_id, options_for_select(physical_people_options+legal_people_options)
-
+    - if @account.errors.messages.include? :incomplete_address
+      = link_to 'Corrigir Endereço', edit_address_path(@account.person.id), target: '_blank'
   .actions
-    = f.submit 'Save'
+    = f.submit 'Salvar'
