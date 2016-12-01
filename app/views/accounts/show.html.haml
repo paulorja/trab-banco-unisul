@@ -1,34 +1,56 @@
+= render 'manager/navigation'
+
 %p#notice= notice
 
 %div
   %strong Número da conta:
-  = ac_number @account
+  = @account.id
 %div
   %strong Tipo da conta:
-  = ac_type @account
+  = @account.tipo
 %div
   %strong Agência:
   = @account.agency.nome
+  - if session[:manager_id]
+    = link_to 'Editar', edit_account_path(@account)
+    \|
+    = link_to 'Voltar', accounts_path
+  - if session[:person_id]
+    = link_to 'Voltar', person_path
+    = link_to 'Saque', new_account_operation_path(@account.id, AccountOperation::tipos[:saque])
+    = link_to 'Depósito', new_account_operation_path(@account.id, AccountOperation::tipos[:deposito])
+ 
+/ %p#notice= notice
 
-- if session[:manager_id]
-  = link_to 'Editar', edit_account_path(@account)
-  \|
-  = link_to 'Voltar', accounts_path
+/ %div
+/   %strong Número da conta:
+/   = ac_number @account
+/ %div
+/   %strong Tipo da conta:
+/   = ac_type @account
+/ %div
+/   %strong Agência:
+/   = @account.agency.nome
 
-- if session[:person_id]
-  = link_to 'Voltar', person_path
-  = link_to 'Saque', new_account_operation_path(@account.id, AccountOperation::tipos[:saque])
-  = link_to 'Depósito', new_account_operation_path(@account.id, AccountOperation::tipos[:deposito])
+/ - if session[:manager_id]
+/   = link_to 'Editar', edit_account_path(@account)
+/   \|
+/   = link_to 'Voltar', accounts_path
 
-%h3 Últimos Lançamentos
+/ - if session[:person_id]
+/   = link_to 'Voltar', person_path
+/   = link_to 'Saque', new_account_operation_path(@account.id, AccountOperation::tipos[:saque])
+/   = link_to 'Depósito', new_account_operation_path(@account.id, AccountOperation::tipos[:deposito])
 
-%table
-  %tr
-    %th Pessoa
-    %th Tipo
-    %th Valor
-  - @account.last_operations.each do |operation|
-    %tr
-      %td= operation.person.get_account_name
-      %td= operation.tipo
-      %td= operation.amount
+/ %h3 Últimos Lançamentos
+
+/ %table
+/   %tr
+/     %th Pessoa
+/     %th Tipo
+/     %th Valor
+/   - @account.last_operations.each do |operation|
+/     %tr
+/       %td= operation.person.get_account_name
+/       %td= operation.tipo
+/       %td= operation.amount

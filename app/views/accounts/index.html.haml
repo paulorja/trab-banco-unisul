@@ -1,27 +1,34 @@
 = render 'manager/navigation'
 
-%h1 Contas
+.container-fluid
+  %h1 Listando Agências
 
-%table
-  %thead
-    %tr
+  %table.table.table-bordered
+    %thead
+      %tr
       %th Número
       %th Tipo
       %th Agência
       %th
-      %th
-      %th
-
-  %tbody
-    - @accounts.each do |account|
-      %tr
-        %td= ac_number account
-        %td= ac_type account
-        %td= account.agency.nome
-        %td= link_to 'Visualizar', account
-        %td= link_to 'Editar', edit_account_path(account)
-        %td= link_to 'Excluir', account, :method => :delete, :data => { :confirm => 'Você tem certeza?' }
-
+    %tbody
+      - @accounts.each do |account|
+        %tr
+          %td= account.id
+          %td= account.tipo
+          %td= account.agency.nome
+          %td
+            .btn-group
+              = link_to account, class: 'btn btn-default' do
+                %i.glyphicon.glyphicon-edit
+                Visualizar
+              = link_to edit_account_path(account), class: 'btn btn-default' do
+                %i.glyphicon.glyphicon-edit
+                  Editar
+              = link_to account, :method => :delete, :data => { :confirm => 'Você tem certeza?' }, class: 'btn btn-default' do
+                %i.glyphicon.glyphicon-remove
+                  Remover
 %br
 
-= link_to 'Abrir Conta', new_account_path
+= link_to new_account_path, class: 'btn btn-info' do
+  %i.glyphicon.glyphicon-plus
+  Abrir Conta
