@@ -1,5 +1,10 @@
-%h1 New agency
+= render 'manager/navigation'
 
-= render 'form'
+.container-fluid
+  %h1 Nova Agência
 
-= link_to 'Back', agencies_path
+  = render 'form'
+
+  = link_to agencies_path, class: 'btn btn-danger' do
+    %i.glyphicon.glyphicon-arrow-left
+    Voltar

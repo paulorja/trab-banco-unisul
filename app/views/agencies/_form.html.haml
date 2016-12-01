@@ -1,17 +1,17 @@
 = form_for @agency do |f|
   - if @agency.errors.any?
-    #error_explanation
+    .alert-danger
       %h2= "#{pluralize(@agency.errors.count, "error")} prohibited this agency from being saved:"
       %ul
         - @agency.errors.full_messages.each do |msg|
           %li= msg
 
-  %div
+  .form-group
     = f.label :nome
-    = f.text_field :nome
-  %div
+    = f.text_field :nome, class: 'form-control'
+  .form-group
     = f.label :numero
-    = f.text_field :numero
+    = f.text_field :numero, class: 'form-control'
 
   .actions
-    = f.submit 'Save'
+    = f.submit 'Salvar', class: 'btn btn-success'

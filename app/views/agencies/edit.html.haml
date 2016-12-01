@@ -1,7 +1,11 @@
-%h1 Editing agency
 
-= render 'form'
+= render 'manager/navigation'
 
-= link_to 'Show', @agency
-\|
-= link_to 'Back', agencies_path
+.container-fluid
+  %h1 Editar Agência
+
+  = render 'form'
+
+  = link_to 'Visualizar', @agency, class: 'btn btn-info'
+  \|
+  = link_to 'Back', agencies_path, class: 'btn btn-danger'

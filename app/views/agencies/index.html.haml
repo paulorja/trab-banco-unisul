@@ -1,25 +1,31 @@
 = render 'manager/navigation'
 
-%h1 Listing agencies
+.container-fluid
+  %h1 Listando Agências
 
-%table
-  %thead
-    %tr
-      %th Nome
-      %th Número
-      %th
-      %th
-      %th
-
-  %tbody
-    - @agencies.each do |agency|
+  %table.table.table-bordered
+    %thead
       %tr
-        %td= agency.nome
-        %td= agency.numero
-        %td= link_to 'Show', agency
-        %td= link_to 'Edit', edit_agency_path(agency)
-        %td= link_to 'Destroy', agency, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %th Nome
+        %th Número
+        %th
+    %tbody
+      - @agencies.each do |agency|
+        %tr
+          %td= agency.nome
+          %td= agency_number agency
+          %td
+            .btn-group
+              = link_to agency, class: 'btn btn-default' do
+                %i.glyphicon.glyphicon-edit
+                Visualizar
+              = link_to edit_agency_path(agency), class: 'btn btn-default' do
+                %i.glyphicon.glyphicon-edit
+                  Editar
+              = link_to agency, :method => :delete, :data => { :confirm => 'Você tem certeza?' }, class: 'btn btn-default' do
+                %i.glyphicon.glyphicon-remove
+                  Remover
 
-%br
-
-= link_to 'New Agency', new_agency_path
+  = link_to new_agency_path, class: 'btn btn-info' do
+    %i.glyphicon.glyphicon-plus
+    Nova Agência
