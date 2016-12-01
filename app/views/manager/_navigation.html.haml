@@ -13,5 +13,6 @@
         %li{class: ('active' if controller_name == 'accounts')}= link_to 'Contas', accounts_path
         %li{class: ('active' if controller_name == 'physical_people')}= link_to 'Pessoa Física', physical_people_path
         %li{class: ('active' if controller_name == 'legal_people')}= link_to 'Pessoa Jurídica', legal_people_path
+        %li{class: ('active' if controller_name == 'partner')}= link_to 'Sócios', partners_path
       %ul.nav.navbar-nav.navbar-right
         %li= link_to 'Sair', auth_logout_path

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :partners
   root 'visitors#index'
 
   # Auth
