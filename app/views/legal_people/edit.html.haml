@@ -1,10 +1,10 @@
 = render 'manager/navigation'
 
-.container-fluid
-	%h1 Editar Pessoa Jurídica
+.row
+  .thumbnail.thumb-center
+    .caption
+      = link_to 'Voltar', legal_people_path
 
-	= render 'form'
+      %h1 Editar Pessoa Jurídica
 
-	= link_to 'Show', @legal_person, class: 'btn btn-info'
-	\|
-	= link_to 'Back', legal_people_path, class: 'btn btn-danger'
+      = render 'form'

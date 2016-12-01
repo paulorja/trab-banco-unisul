@@ -2,6 +2,7 @@ class Account < ActiveRecord::Base
   belongs_to :agency
   belongs_to :person
 
+  validates :limite_cheque_esp, presence: true
   validate :incomplete_address
 
   enum tipo: [:corrente, :poupanca]

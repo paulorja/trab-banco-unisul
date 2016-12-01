@@ -8,13 +8,13 @@
       %tr
         %th Nome
         %th Número
-        %th
+        %th.th-actions-crud
     %tbody
       - @agencies.each do |agency|
         %tr
           %td= agency.nome
           %td= agency_number agency
-          %td
+          %td.text-center
             .btn-group
               = link_to agency, class: 'btn btn-default' do
                 %i.glyphicon.glyphicon-edit

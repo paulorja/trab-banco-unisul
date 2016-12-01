@@ -1,7 +1,7 @@
 = form_for @legal_person do |f|
   - if @legal_person.errors.any?
-    .alert-danger
-      %h2= "#{pluralize(@legal_person.errors.count, "error")} prohibited this legal_person from being saved:"
+    .alert.alert-danger
+      %h2= "Erro ao salvar."
       %ul
         - @legal_person.errors.full_messages.each do |msg|
           %li= msg

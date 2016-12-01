@@ -1,15 +1,21 @@
 = render 'manager/navigation'
 
-%p#notice= notice
+.row
+  .thumbnail.thumb-center
+    .caption
+      = link_to 'Voltar', physical_people_path
 
-%div
-  %strong Pessoa Física:
-  = @physical_person.address
+      %div
+        %strong Nome:
+        = @physical_person.nome
+      %div
+        %strong CPF:
+        = @physical_person.cpf
+      %div
+        %strong Data de Nascimento:
+        = @physical_person.nascimento
+      %div.text-center
+        .btn-group
+          = link_to 'Endereço', address_path(@physical_person.address), class: 'btn btn-default'
+          = link_to 'Editar', edit_physical_person_path(@physical_person), class: 'btn btn-default'
 
-= link_to 'Address', address_path(@physical_person.address), class: 'btn'
-
-%br
-
-= link_to 'Edit', edit_physical_person_path(@physical_person), class: 'btn'
-\|
-= link_to 'Back', physical_people_path, class: 'btn'

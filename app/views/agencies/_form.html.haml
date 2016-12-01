@@ -1,7 +1,7 @@
 = form_for @agency do |f|
   - if @agency.errors.any?
-    .alert-danger
-      %h2= "#{pluralize(@agency.errors.count, "error")} prohibited this agency from being saved:"
+    .alert.alert-danger
+      %h2= "Erro ao salvar."
       %ul
         - @agency.errors.full_messages.each do |msg|
           %li= msg

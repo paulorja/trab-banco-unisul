@@ -1,25 +1,32 @@
 = render 'manager/navigation'
 
-%h1 Listing partners
+.container-fluid
+  %h1 Listando Sócios
 
-%table
-  %thead
-    %tr
-      %th Person
-      %th Account
-      %th
-      %th
-      %th
-
-  %tbody
-    - @partners.each do |partner|
+  %table.table.table-bordered
+    %thead
       %tr
-        %td= partner.person
-        %td= partner.account
-        %td= link_to 'Show', partner
-        %td= link_to 'Edit', edit_partner_path(partner)
-        %td= link_to 'Destroy', partner, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %th Cliente
+        %th Conta
+        %th.th-actions-crud
 
-%br
+    %tbody
+      - @partners.each do |partner|
+        %tr
+          %td= partner.person.get_account_name
+          %td= "#{agency_number(partner.account.agency)}-#{ac_number partner.account}"
+          %td.text-center
+            .btn-group
+              = link_to partner, class: 'btn btn-default' do
+                %i.glyphicon.glyphicon-edit
+                Visualizar
+              = link_to edit_partner_path(partner), class: 'btn btn-default' do
+                %i.glyphicon.glyphicon-edit
+                  Editar
+              = link_to partner, :method => :delete, :data => { :confirm => 'Você tem certeza?' }, class: 'btn btn-default' do
+                %i.glyphicon.glyphicon-remove
+                  Remover
 
-= link_to 'New Partner', new_partner_path
+  = link_to new_partner_path, class: 'btn btn-info' do
+    %i.glyphicon.glyphicon-plus
+    Novo Sócio

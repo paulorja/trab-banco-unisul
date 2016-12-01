@@ -8,16 +8,14 @@
       %tr
         %th Nome
         %th CPF
-        %th
-        %th
-        %th
+        %th.th-actions-crud
 
     %tbody
       - @physical_people.each do |physical_person|
         %tr
           %td= physical_person.nome
           %td= physical_person.cpf
-          %td
+          %td.text-center
             .btn-group
               = link_to physical_person, class: 'btn btn-default' do
                 %i.glyphicon.glyphicon-edit

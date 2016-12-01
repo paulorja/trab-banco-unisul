@@ -1,8 +1,9 @@
-.container-fluid
-  %h1 Nova Conta
+= render 'manager/navigation'
 
-  = render 'form'
+.row
+  .thumbnail.thumb-center
+    .caption
+      = link_to 'Voltar', accounts_path
+      %h1 Nova Conta
 
-  = link_to accounts_path, class: 'btn btn-danger' do
-    %i.glyphicon.glyphicon-arrow-left
-    Voltar
+      = render 'form'

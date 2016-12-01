@@ -1,10 +1,9 @@
 = render 'manager/navigation'
 
-.container-fluid
-	%h1 Nova Pessoa Jurídica
+.row
+  .thumbnail.thumb-center
+    .caption
+      = link_to 'Voltar', legal_people_path
+      %h1 Nova Pessoa Jurídica
 
-	= render 'form'
-
-	= link_to legal_people_path, class: 'btn btn-danger' do
-		%i.glyphicon.glyphicon-arrow-left
-		Voltar
+      = render 'form'

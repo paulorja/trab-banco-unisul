@@ -1,8 +1,5 @@
 = render 'manager/navigation'
 
-%p#notice= notice
-
-
 .row
   .thumbnail.thumb-center
     .caption
@@ -15,6 +12,6 @@
       %div
         %strong Numero:
         = @agency.numero
-      = link_to edit_agency_path(@agency) do
+      = link_to edit_agency_path(@agency), class: 'btn btn-default' do
         %i.glyphicon.glyphicon-edit
         Editar

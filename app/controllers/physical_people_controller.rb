@@ -22,7 +22,7 @@ class PhysicalPeopleController < ApplicationController
 
     respond_to do |format|
       if @physical_person.save
-        format.html { redirect_to @physical_person, notice: 'Physical person was successfully created.' }
+        format.html { redirect_to @physical_person, notice: 'Pessoa física cadastrada.' }
         format.json { render :show, status: :created, location: @physical_person }
       else
         format.html { render :new }
@@ -34,7 +34,7 @@ class PhysicalPeopleController < ApplicationController
   def update
     respond_to do |format|
       if @physical_person.update(physical_person_params)
-        format.html { redirect_to @physical_person, notice: 'Physical person was successfully updated.' }
+        format.html { redirect_to @physical_person, notice: 'Pessoa física editada.' }
         format.json { render :show, status: :ok, location: @physical_person }
       else
         format.html { render :edit }
@@ -46,7 +46,7 @@ class PhysicalPeopleController < ApplicationController
   def destroy
     @physical_person.destroy
     respond_to do |format|
-      format.html { redirect_to physical_people_url, notice: 'Physical person was successfully destroyed.' }
+      format.html { redirect_to physical_people_url, notice: 'Pessoa física excluída.' }
       format.json { head :no_content }
     end
   end

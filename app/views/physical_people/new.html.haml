@@ -1,10 +1,9 @@
 = render 'manager/navigation'
 
-.container-fluid
-	%h1 Nova Pessoa Física
-	
-	= render 'form'
+.row
+  .thumbnail.thumb-center
+    .caption
+      = link_to 'Voltar', physical_people_path
+      %h1 Nova Pessoa Física
 
-	= link_to physical_people_path, class: 'btn btn-danger' do
-		%i.glyphicon.glyphicon-arrow-left
-		Voltar
+      = render 'form'

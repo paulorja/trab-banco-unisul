@@ -1,15 +1,17 @@
 = render 'manager/navigation'
 
-%p#notice= notice
+.row
+  .thumbnail.thumb-center
+    .caption
+      = link_to 'Voltar', legal_people_path
 
-%div
-  %strong Pessoa Jurídica:
-  = @legal_person.address
-
-= link_to 'Address', address_path(@legal_person.address), class: 'btn'
-
-%br
-
-= link_to 'Edit', edit_legal_person_path(@legal_person), class: 'btn'
-\|
-= link_to 'Back', legal_people_path, class: 'btn'
+      %div
+        %strong Nome:
+        = @legal_person.nome
+      %div
+        %strong CNPJ:
+        = @legal_person.cnpj
+      %div.text-center
+        .btn-group
+          = link_to 'Endereço', address_path(@legal_person.address), class: 'btn btn-default'
+          = link_to 'Editar', edit_legal_person_path(@legal_person), class: 'btn btn-default'

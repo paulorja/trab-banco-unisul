@@ -9,14 +9,14 @@
       %th Número
       %th Tipo
       %th Agência
-      %th
+      %th.th-actions-crud
     %tbody
       - @accounts.each do |account|
         %tr
           %td= account.id
           %td= account.tipo
           %td= account.agency.nome
-          %td
+          %td.text-center
             .btn-group
               = link_to account, class: 'btn btn-default' do
                 %i.glyphicon.glyphicon-edit

@@ -1,8 +1,10 @@
 = render 'manager/navigation'
 
-.container-fluid
-	%h1 Editar endereço
 
-= render 'form'
+.row
+  .thumbnail.thumb-center
+    .caption
+      = link_to 'Voltar', :back
+      %h1 Editar endereço
 
-= link_to 'Show', @address
+      = render 'form'

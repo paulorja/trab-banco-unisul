@@ -1,5 +1,26 @@
 = render 'manager/navigation'
 
-%p#notice= notice
+.row
+  .thumbnail.thumb-center
+    .caption.text-center
+      = link_to 'Voltar', :back
 
-= link_to 'Edit', edit_address_path(@address)
+      %div
+        %strong Rua:
+        = @address.rua
+      %div
+        %strong CEP:
+        = @address.cep
+      %div
+        %strong Cidade:
+        = @address.cidade
+      %div
+        %strong UF:
+        = @address.uf
+      %div
+        %strong Número:
+        = @address.numero
+
+    = link_to edit_address_path(@address), class: 'btn btn-default' do
+      %i.glyphicon.glyphicon-edit
+      Editar

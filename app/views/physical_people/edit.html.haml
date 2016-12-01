@@ -1,8 +1,10 @@
-.container-fluid
-	%h1 Editing physical_person
+= render 'manager/navigation'
 
-	= render 'form'
+.row
+  .thumbnail.thumb-center
+    .caption
+      = link_to 'Voltar', physical_people_path
 
-	= link_to 'Show', @physical_person
-	\|
-	= link_to 'Back', physical_people_path
+      %h1 Editar Pessoa Física
+
+      = render 'form'

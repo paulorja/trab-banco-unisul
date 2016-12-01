@@ -22,7 +22,7 @@ class LegalPeopleController < ApplicationController
 
     respond_to do |format|
       if @legal_person.save
-        format.html { redirect_to @legal_person, notice: 'Legal person was successfully created.' }
+        format.html { redirect_to @legal_person, notice: 'Pessoa jurídica cadastrada.' }
         format.json { render :show, status: :created, location: @legal_person }
       else
         format.html { render :new }
@@ -34,7 +34,7 @@ class LegalPeopleController < ApplicationController
   def update
     respond_to do |format|
       if @legal_person.update(legal_person_params)
-        format.html { redirect_to @legal_person, notice: 'Legal person was successfully updated.' }
+        format.html { redirect_to @legal_person, notice: 'Pessoa jurídica editada.' }
         format.json { render :show, status: :ok, location: @legal_person }
       else
         format.html { render :edit }
@@ -46,7 +46,7 @@ class LegalPeopleController < ApplicationController
   def destroy
     @legal_person.destroy
     respond_to do |format|
-      format.html { redirect_to legal_people_url, notice: 'Legal person was successfully destroyed.' }
+      format.html { redirect_to legal_people_url, notice: 'Pessoa jurídica excluída.' }
       format.json { head :no_content }
     end
   end

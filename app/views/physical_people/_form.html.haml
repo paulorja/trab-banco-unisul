@@ -1,7 +1,7 @@
 = form_for @physical_person do |f|
   - if @physical_person.errors.any?
-    .alert-danger
-      %h2= "#{pluralize(@physical_person.errors.count, "error")} prohibited this physical_person from being saved:"
+    .alert.alert-danger
+      %h2= "Erro ao salvar."
       %ul
         - @physical_person.errors.full_messages.each do |msg|
           %li= msg
@@ -12,9 +12,9 @@
   .form-group
     = f.label :cpf, 'CPF: '
     = f.text_field :cpf, class: 'form-control'
-  .form-group
+  .form-inline
     = f.label :nascimento
-    = f.date_select :nascimento, class: 'form-control'
+    = f.date_select :nascimento, { order: [:day, :month, :year] }, { class: 'form-control' }
 
   .actions
-    = f.submit 'Save', class: 'btn btn-success'
+    = f.submit 'Salvar', class: 'btn btn-success'

@@ -1,26 +1,26 @@
 = form_for @address do |f|
   - if @address.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@address.errors.count, "error")} prohibited this address from being saved:"
+    .alert.alert-danger
+      %h2= "Erro ao salvar."
       %ul
         - @address.errors.full_messages.each do |msg|
           %li= msg
 
-  %div
+  .form-group
     = f.label :rua
-    = f.text_field :rua
-  %div
+    = f.text_field :rua, class: 'form-control'
+  .form-group
     = f.label :cep
-    = f.text_field :cep
-  %div
+    = f.text_field :cep, class: 'form-control'
+  .form-group
     = f.label :cidade
-    = f.text_field :cidade
-  %div
+    = f.text_field :cidade, class: 'form-control'
+  .form-group
     = f.label :uf
-    = f.text_field :uf
-  %div
+    = f.text_field :uf, class: 'form-control'
+  .form-group
     = f.label :numero
-    = f.text_field :numero
+    = f.text_field :numero, class: 'form-control'
 
   .actions
     = f.submit 'Save'

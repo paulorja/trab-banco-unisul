@@ -1,23 +1,21 @@
 = render 'manager/navigation'
 
 .container-fluid
-  %h1 Listar Pessoa Jurídica
+  %h1 Listando Pessoa Jurídica
 
   %table.table.table-bordered
     %thead
       %tr
         %th Nome Fantasia
         %th CNPJ
-        %th
-        %th
-        %th
+        %th.th-actions-crud
 
     %tbody
       - @legal_people.each do |legal_person|
         %tr
           %td= legal_person.nome
           %td= legal_person.cnpj
-          %td
+          %td.text-center
             .btn-group
               = link_to legal_person, class: 'btn btn-default' do
                 %i.glyphicon.glyphicon-edit
