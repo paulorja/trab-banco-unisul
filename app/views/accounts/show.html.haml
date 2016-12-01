@@ -8,7 +8,10 @@
   = ac_type @account
 %div
   %strong Agência:
-  = @account.agency.nome
+  = agency_number @account.agency
+%div
+  %strong Saldo:
+  = @account.saldo
 
 - if session[:manager_id]
   = link_to 'Editar', edit_account_path(@account)

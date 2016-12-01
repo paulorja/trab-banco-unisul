@@ -1,3 +1,14 @@
-%div
-  %li= link_to 'Home', person_path
-  %li= link_to 'Sair', auth_logout_path
+%nav.navbar.navbar-default
+  .container-fluid
+    .navbar-header
+      %button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %a.navbar-brand{href: person_path} Minhas Contas
+    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+      %ul.nav.navbar-nav
+        /%li{class: ('active' if controller_name == 'agencies')}= link_to 'Agências', agencies_path
+      %ul.nav.navbar-nav.navbar-right
+        %li= link_to 'Sair', auth_logout_path
