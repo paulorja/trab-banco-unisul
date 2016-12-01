@@ -14,3 +14,15 @@
     %td= ac_number account
     %td= account.agency.nome
     %td= link_to 'Ver conta', account_path(account)
+
+%h3 Contas que você é sócio
+%table
+  %tr
+    %th Número
+    %th Agência
+    %th
+  - @person.partners.each do |partner|
+    %tr
+      %td= ac_number partner.account
+      %td= partner.account.agency.nome
+      %td= link_to 'Ver conta', account_path(partner.account)
