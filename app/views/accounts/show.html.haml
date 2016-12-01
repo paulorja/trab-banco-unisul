@@ -1,28 +1,29 @@
+= render 'manager/navigation'
+
 %p#notice= notice
 
 %div
   %strong Número da conta:
-  = ac_number @account
+  = @account.id
 %div
   %strong Tipo da conta:
-  = ac_type @account
+  = @account.tipo
 %div
   %strong Agência:
+  = @account.agency.nome
   = agency_number @account.agency
 %div
   %strong Saldo:
   = @account.saldo
-
-- if session[:manager_id]
-  = link_to 'Editar', edit_account_path(@account)
-  \|
-  = link_to 'Voltar', accounts_path
-
-- if session[:person_id]
-  = link_to 'Voltar', person_path
-  = link_to 'Saque', new_account_operation_path(@account.id, AccountOperation::tipos[:saque])
-  = link_to 'Depósito', new_account_operation_path(@account.id, AccountOperation::tipos[:deposito])
-
+  - if session[:manager_id]
+    = link_to 'Editar', edit_account_path(@account)
+    \|
+    = link_to 'Voltar', accounts_path
+  - if session[:person_id]
+    = link_to 'Voltar', person_path
+    = link_to 'Saque', new_account_operation_path(@account.id, AccountOperation::tipos[:saque])
+    = link_to 'Depósito', new_account_operation_path(@account.id, AccountOperation::tipos[:deposito])
+ 
 %h3 Últimos Lançamentos
 
 %table
@@ -35,3 +36,4 @@
       %td= operation.person.get_account_name
       %td= operation.tipo
       %td= operation.amount
+%p#notice= notice
