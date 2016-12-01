@@ -1,5 +1,10 @@
-%h1 New physical_person
+= render 'manager/navigation'
 
-= render 'form'
+.container-fluid
+	%h1 Nova Pessoa Física
+	
+	= render 'form'
 
-= link_to 'Back', physical_people_path
+	= link_to physical_people_path, class: 'btn btn-danger' do
+		%i.glyphicon.glyphicon-arrow-left
+		Voltar

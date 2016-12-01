@@ -1,7 +1,10 @@
-%h1 Editing account
+= render 'manager/navigation'
 
-= render 'form'
+.container-fluid
+	%h1 Editar conta
 
-= link_to 'Show', @account
-\|
-= link_to 'Back', accounts_path
+	= render 'form'
+
+	= link_to 'Show', @account
+	\|
+	= link_to 'Back', accounts_path

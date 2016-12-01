@@ -1,7 +1,15 @@
+= render 'manager/navigation'
+
 %p#notice= notice
 
-= link_to 'Address', address_path(@physical_person.address)
+%div
+  %strong Pessoa Física:
+  = @physical_person.address
 
-= link_to 'Edit', edit_physical_person_path(@physical_person)
+= link_to 'Address', address_path(@physical_person.address), class: 'btn'
+
+%br
+
+= link_to 'Edit', edit_physical_person_path(@physical_person), class: 'btn'
 \|
-= link_to 'Back', physical_people_path
+= link_to 'Back', physical_people_path, class: 'btn'

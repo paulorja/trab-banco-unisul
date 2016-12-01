@@ -1,25 +1,36 @@
 = render 'manager/navigation'
 
-%h1 Listing physical_people
+.container-fluid
+  %h1 Listar Pessoa Física
 
-%table
-  %thead
-    %tr
-      %th Nome
-      %th CPF
-      %th
-      %th
-      %th
-
-  %tbody
-    - @physical_people.each do |physical_person|
+  %table.table.table-bordered
+    %thead
       %tr
-        %td= physical_person.nome
-        %td= physical_person.cpf
-        %td= link_to 'Show', physical_person
-        %td= link_to 'Edit', edit_physical_person_path(physical_person)
-        %td= link_to 'Destroy', physical_person, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %th Nome
+        %th CPF
+        %th
+        %th
+        %th
 
-%br
+    %tbody
+      - @physical_people.each do |physical_person|
+        %tr
+          %td= physical_person.nome
+          %td= physical_person.cpf
+          %td
+            .btn-group
+              = link_to physical_person, class: 'btn btn-default' do
+                %i.glyphicon.glyphicon-edit
+                Visualizar
+              = link_to edit_physical_person_path(physical_person), class: 'btn btn-default' do
+                %i.glyphicon.glyphicon-edit
+                  Editar
+              = link_to physical_person, :method => :delete, :data => { :confirm => 'Você tem certeza?' }, class: 'btn btn-default' do
+                %i.glyphicon.glyphicon-remove
+                  Remover
+  %br
 
-= link_to 'New Physical person', new_physical_person_path
+  = link_to new_physical_person_path, class: 'btn btn-info' do
+    %i.glyphicon.glyphicon-plus
+    Nova Pessoa Física
+ 
