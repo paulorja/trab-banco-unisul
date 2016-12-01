@@ -2,12 +2,19 @@
 
 %p#notice= notice
 
-%div
-  %strong Nome:
-  = @agency.nome
-%div
-  %strong Numero:
-  = @agency.numero
-= link_to 'Edit', edit_agency_path(@agency)
-\|
-= link_to 'Back', agencies_path
+
+.row
+  .thumbnail.thumb-center
+    .caption
+      = link_to 'Voltar', agencies_path
+      %br
+      %br
+      %div
+        %strong Nome:
+        = @agency.nome
+      %div
+        %strong Numero:
+        = @agency.numero
+      = link_to edit_agency_path(@agency) do
+        %i.glyphicon.glyphicon-edit
+        Editar

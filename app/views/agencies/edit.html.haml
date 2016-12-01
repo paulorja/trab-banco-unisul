@@ -1,11 +1,11 @@
 
 = render 'manager/navigation'
 
-.container-fluid
-  %h1 Editar Agência
+.row
+  .thumbnail.thumb-center
+    .caption
+      = link_to 'Voltar', agencies_path
 
-  = render 'form'
+      %h1 Editar Agência
 
-  = link_to 'Visualizar', @agency, class: 'btn btn-info'
-  \|
-  = link_to 'Back', agencies_path, class: 'btn btn-danger'
+      = render 'form'

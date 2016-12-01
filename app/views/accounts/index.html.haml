@@ -1,7 +1,7 @@
 = render 'manager/navigation'
 
 .container-fluid
-  %h1 Listando Agências
+  %h1 Listando Contas
 
   %table.table.table-bordered
     %thead
@@ -27,8 +27,7 @@
               = link_to account, :method => :delete, :data => { :confirm => 'Você tem certeza?' }, class: 'btn btn-default' do
                 %i.glyphicon.glyphicon-remove
                   Remover
-%br
 
-= link_to new_account_path, class: 'btn btn-info' do
-  %i.glyphicon.glyphicon-plus
-  Abrir Conta
+  = link_to new_account_path, class: 'btn btn-info' do
+    %i.glyphicon.glyphicon-plus
+    Abrir Conta

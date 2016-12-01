@@ -6,15 +6,18 @@
         - @account.errors.full_messages.each do |msg|
           %li= msg
   .form-group
-    = f.label :agency_id
-    = f.select :agency_id, options_for_select(agencies_options), class: 'form-control'
+    = f.label :agency_id, 'Agência'
+    = f.select :agency_id, options_for_select(agencies_options), {}, class: 'form-control'
   .form-group
-    = f.label :tipo
-    = f.select :tipo, options_for_select(tipos_options), class: 'form-control'
+    = f.label :tipo, 'Tipo de Conta'
+    = f.select :tipo, options_for_select(tipos_options), {}, class: 'form-control'
+  .form-group
+    = f.label :limite_cheque_esp, 'Limite de Cheque Especial'
+    = f.text_field :limite_cheque_esp, class: 'form-control'
 
   .form-group
-    = f.label :person_id, 'Pessoa'
-    = f.select :person_id, options_for_select(physical_people_options+legal_people_options), class: 'form-control'
+    = f.label :person_id, 'Cliente'
+    = f.select :person_id, options_for_select(physical_people_options+legal_people_options), {}, class: 'form-control'
     - if @account.errors.messages.include? :incomplete_address
       = link_to 'Corrigir Endereço', edit_address_path(@account.person.id), target: '_blank'
   .actions

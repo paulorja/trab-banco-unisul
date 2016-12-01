@@ -1,10 +1,11 @@
 = render 'manager/navigation'
 
-.container-fluid
-  %h1 Nova Agência
+.row
+  .thumbnail.thumb-center
+    .caption
+      = link_to 'Voltar', agencies_path
+      %h1 Nova Agência
 
-  = render 'form'
+      = render 'form'
 
-  = link_to agencies_path, class: 'btn btn-danger' do
-    %i.glyphicon.glyphicon-arrow-left
-    Voltar
+

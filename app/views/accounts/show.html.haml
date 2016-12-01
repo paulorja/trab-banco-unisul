@@ -2,40 +2,47 @@
 = render 'manager/navigation' if session[:manager_id]
 = render 'person/navigation' if session[:person_id]
 
-%p#notice= notice
+.container-fluid
+  = link_to 'Voltar', person_path if session[:person_id]
 
-%div
-  %strong Número da conta:
-  = @account.id
-%div
-  %strong Tipo da conta:
-  = @account.tipo
-%div
-  %strong Agência:
-  = @account.agency.nome
-  = agency_number @account.agency
-%div
-  %strong Saldo:
-  = @account.saldo
-  - if session[:manager_id]
-    = link_to 'Editar', edit_account_path(@account)
-    \|
-    = link_to 'Voltar', accounts_path
-  - if session[:person_id]
-    = link_to 'Voltar', person_path
-    = link_to 'Saque', new_account_operation_path(@account.id, AccountOperation::tipos[:saque])
-    = link_to 'Depósito', new_account_operation_path(@account.id, AccountOperation::tipos[:deposito])
- 
-%h3 Últimos Lançamentos
+  %p#notice= notice
 
-%table
-  %tr
-    %th Pessoa
-    %th Tipo
-    %th Valor
-  - @account.last_operations.each do |operation|
+  .thumbnail
+    .caption.text-center
+      %div
+        %strong Número da conta:
+        = "#{agency_number(@account.agency)}-#{ac_number(@account)}"
+      %div
+        %strong Tipo da conta:
+        = @account.tipo.capitalize
+      %div
+        %strong Saldo:
+        = monetize @account.saldo
+        - if session[:manager_id]
+          %div
+            .btn-group
+              = link_to edit_account_path(@account), class: 'btn btn-default' do
+                %i.glyphicon.glyphicon-edit
+                Editar
+              = link_to accounts_path, class: 'btn btn-default' do
+                %i.glyphicon.glyphicon-arrow-left
+                Voltar
+
+        - if session[:person_id]
+          %div
+            .btn-group
+              = link_to 'Saque', new_account_operation_path(@account.id, AccountOperation::tipos[:saque]), class: 'btn btn-default'
+              = link_to 'Depósito', new_account_operation_path(@account.id, AccountOperation::tipos[:deposito]), class: 'btn btn-default'
+
+  %h4 Últimos Lançamentos
+
+  %table.table.table-condensed.table-striped
     %tr
-      %td= operation.person.get_account_name
-      %td= operation.tipo
-      %td= operation.amount
-%p#notice= notice
+      %th Pessoa
+      %th Ação
+      %th Valor
+    - @account.last_operations.each do |operation|
+      %tr
+        %td= operation.person.get_account_name
+        %td= operation.tipo.capitalize
+        %td= monetize operation.amount
