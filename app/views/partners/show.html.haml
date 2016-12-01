@@ -1,14 +1,14 @@
 = render 'manager/navigation'
 
-%p#notice= notice
+.row
+  .thumbnail.thumb-center
+    .caption
+      = link_to 'Voltar', partners_path
 
-%p
-  %b Person:
-  = @partner.person
-%p
-  %b Account:
-  = @partner.account
+      %div
+        %strong Cliente:
+        = @partner.person.get_account_name
+      %div
+        %strong Número da conta:
+        = ac_number @partner.account
 
-= link_to 'Edit', edit_partner_path(@partner)
-\|
-= link_to 'Back', partners_path

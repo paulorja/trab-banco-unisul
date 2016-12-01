@@ -18,7 +18,7 @@ class AccountOperationsController < ApplicationController
 
     respond_to do |format|
       if @account_operation.save
-        format.html { redirect_to account_path(@account_operation.account_id), notice: 'Account operation was successfully created.' }
+        format.html { redirect_to account_path(@account_operation.account_id), notice: 'Operação realizada.' }
         format.json { render :show, status: :created, location: @account_operation }
       else
         format.html { render :new }

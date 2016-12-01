@@ -9,13 +9,12 @@
   = hidden_field_tag 'account_operation[person_id]', session[:person_id]
   = hidden_field_tag 'account_operation[account_id]', params[:account_id]
 
-  .field
+  .form-group
     = f.label :tipo
-    = f.select :tipo, options_for_select(operation_options, params[:tipo])
-  .field
+    = f.select :tipo, options_for_select(operation_options, params[:tipo]), {}, class: 'form-control'
+  .form-group
     = f.label :amount, 'Valor'
-    = f.text_field :amount
+    = f.text_field :amount, class: 'form-control'
 
   .actions
-    = f.submit 'Save'
-    = link_to 'Voltar', account_path(params[:account_id])
+    = f.submit 'Save', class: 'btn btn-success'

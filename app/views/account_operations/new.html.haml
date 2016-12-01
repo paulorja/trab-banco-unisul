@@ -1,3 +1,10 @@
-%h1 Nova Operação
+= render 'manager/navigation' if session[:manager_id]
+= render 'person/navigation' if session[:person_id]
 
-= render 'form'
+.row
+  .thumbnail.thumb-center
+    .caption
+      = link_to 'Voltar', :back
+      %h1 Nova Operação
+
+      = render 'form'

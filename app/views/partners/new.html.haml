@@ -1,7 +1,9 @@
 = render 'manager/navigation'
 
-%h1 New partner
+.row
+  .thumbnail.thumb-center
+    .caption
+      = link_to 'Voltar', partners_path
+      %h1 Novo Sócio
 
-= render 'form'
-
-= link_to 'Back', partners_path
+      = render 'form'

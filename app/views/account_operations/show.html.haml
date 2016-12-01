@@ -1,12 +1,20 @@
-%p
-  %b Account:
-  = @account_operation.account.id
-%p
-  %b Person:
-  = @account_operation.person.get_account_name
-%p
-  %b Amount:
-  = @account_operation.amount
-%p
-  %b Tipo:
-  = @account_operation.tipo
+= render 'manager/navigation' if session[:manager_id]
+= render 'person/navigation' if session[:person_id]
+
+.container-fluid
+  = link_to 'Voltar', :back
+
+  .thumbnail
+    .caption.text-center
+      %div
+        %strong Número da conta:
+        = "#{agency_number(@account_operation.account.agency)}-#{ac_number(@account_operation.account)}"
+      %div
+        %strong Cliente:
+        = @account_operation.person.get_account_name
+      %div
+        %strong Valor:
+        = monetize @account_operation.amount
+      %div
+        %strong Tipo:
+        = @account_operation.tipo

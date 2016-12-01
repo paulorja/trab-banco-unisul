@@ -6,11 +6,11 @@
         - @partner.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
+  .form-group
     = f.label :person_id, 'Cliente'
-    = f.select :person_id, options_for_select(physical_people_options+legal_people_options)
-  .field
+    = f.select :person_id, options_for_select(physical_people_options+legal_people_options), {}, class: 'form-control'
+  .form-group
     = f.label :account_number, 'Número da Conta'
-    = f.text_field :account_number
+    = f.text_field :account_number, class: 'form-control'
   .actions
-    = f.submit 'Save'
+    = f.submit 'Save', class: 'btn btn-success'
