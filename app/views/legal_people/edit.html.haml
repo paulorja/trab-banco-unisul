@@ -1,7 +1,10 @@
-%h1 Editing legal_person
+= render 'manager/navigation'
 
-= render 'form'
+.container-fluid
+	%h1 Editar Pessoa Jurídica
 
-= link_to 'Show', @legal_person
-\|
-= link_to 'Back', legal_people_path
+	= render 'form'
+
+	= link_to 'Show', @legal_person, class: 'btn btn-info'
+	\|
+	= link_to 'Back', legal_people_path, class: 'btn btn-danger'

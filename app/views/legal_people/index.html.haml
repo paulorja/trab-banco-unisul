@@ -1,25 +1,35 @@
 = render 'manager/navigation'
 
-%h1 Listing legal_people
+.container-fluid
+  %h1 Listar Pessoa Jurídica
 
-%table
-  %thead
-    %tr
-      %th Nome Fantasia
-      %th CNPJ
-      %th
-      %th
-      %th
-
-  %tbody
-    - @legal_people.each do |legal_person|
+  %table.table.table-bordered
+    %thead
       %tr
-        %td= legal_person.nome
-        %td= legal_person.cnpj
-        %td= link_to 'Show', legal_person
-        %td= link_to 'Edit', edit_legal_person_path(legal_person)
-        %td= link_to 'Destroy', legal_person, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %th Nome Fantasia
+        %th CNPJ
+        %th
+        %th
+        %th
 
-%br
+    %tbody
+      - @legal_people.each do |legal_person|
+        %tr
+          %td= legal_person.nome
+          %td= legal_person.cnpj
+          %td
+            .btn-group
+              = link_to legal_person, class: 'btn btn-default' do
+                %i.glyphicon.glyphicon-edit
+                Visualizar
+              = link_to edit_legal_person_path(legal_person), class: 'btn btn-default' do
+                %i.glyphicon.glyphicon-edit
+                  Editar
+              = link_to legal_person, :method => :delete, :data => { :confirm => 'Você tem certeza?' }, class: 'btn btn-default' do
+                %i.glyphicon.glyphicon-remove
+                  Remover
+  %br
 
-= link_to 'New Legal person', new_legal_person_path
+  = link_to new_legal_person_path, class: 'btn btn-info' do
+    %i.glyphicon.glyphicon-plus
+    Nova Pessoa Jurídica
