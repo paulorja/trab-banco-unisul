@@ -1,0 +1,5 @@
+.thumbnail
+  .caption.text-center
+    = "#{agency_number(account.agency)}-#{ac_number(account)}"
+    %h4= monetize account.saldo
+    %div= link_to 'Ver conta', account_path(account), class: 'btn btn-info'

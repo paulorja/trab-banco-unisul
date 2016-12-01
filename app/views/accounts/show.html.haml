@@ -1,4 +1,6 @@
-= render 'manager/navigation'
+
+= render 'manager/navigation' if session[:manager_id]
+= render 'person/navigation' if session[:person_id]
 
 %p#notice= notice
 
