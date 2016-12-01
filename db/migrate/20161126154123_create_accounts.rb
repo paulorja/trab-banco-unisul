@@ -4,7 +4,7 @@ class CreateAccounts < ActiveRecord::Migration
       t.integer :tipo
       t.references :agency, index: true, foreign_key: true
       t.references :person, index: true, foreign_key: true
-      t.float :saldo
+      t.float :saldo, default: 0.0
       t.float :limite_cheque_esp
       t.datetime :deleted_at
 

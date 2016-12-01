@@ -29,11 +29,11 @@ ActiveRecord::Schema.define(version: 20161130225939) do
     t.integer  "tipo",              limit: 4
     t.integer  "agency_id",         limit: 4
     t.integer  "person_id",         limit: 4
-    t.float    "saldo",             limit: 24
+    t.float    "saldo",             limit: 24, default: 0.0
     t.float    "limite_cheque_esp", limit: 24
     t.datetime "deleted_at"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
   end
 
   add_index "accounts", ["agency_id"], name: "index_accounts_on_agency_id", using: :btree
