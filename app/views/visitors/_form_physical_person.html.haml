@@ -1,5 +1,6 @@
 = form_tag auth_physical_person_path do
   %h3 Pessoa Física
-  = label_tag :cpf
-  = text_field_tag :cpf
-  = submit_tag 'Entrar'
+  .form-group
+    = label_tag :cpf, 'CPF'
+    = text_field_tag :cpf, '', class: 'form-control'
+  = submit_tag 'Entrar', class: 'btn btn-success'

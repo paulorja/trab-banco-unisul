@@ -11,8 +11,8 @@ class ApplicationController < ActionController::Base
     not_authorized if session[:person_id].nil?
   end
 
-  def not_authorized
-    flash[:notice] = 'Não autorizado'
+  def not_authorized()
+    flash[:alert] = 'Não autorizado'
     redirect_to root_path
   end
 

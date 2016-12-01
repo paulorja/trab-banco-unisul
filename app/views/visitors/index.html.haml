@@ -1,6 +1,27 @@
 
-%h1 Bem vindo ao banco
+.jumbotron
+  .container-fluid
+    %h1.text-center Bem vindo ao banco
+    %p.text-center Selecione seu tipo de acesso
 
-= render 'form_manager'
-= render 'form_physical_person'
-= render 'form_legal_person'
+.container-fluid{style: 'max-width: 400px;'}
+
+  = render 'layouts/flash'
+
+  %ul.nav.nav-tabs{:role => "tablist"}
+    %li.active{:role => "presentation"}
+      %a{"aria-controls" => "home", "data-toggle" => "tab", :href => "#gerente", :role => "tab"}
+        Gerente
+    %li{:role => "presentation"}
+      %a{"aria-controls" => "profile", "data-toggle" => "tab", :href => "#pessoa-fisica", :role => "tab"}
+        Pessoa Física
+    %li{:role => "presentation"}
+      %a{"aria-controls" => "messages", "data-toggle" => "tab", :href => "#pessoa-juridica", :role => "tab"}
+        Pessoa Jurírica
+  .tab-content
+    #gerente.tab-pane.active{:role => "tabpanel"}
+      = render 'form_manager'
+    #pessoa-fisica.tab-pane{:role => "tabpanel"}
+      = render 'form_physical_person'
+    #pessoa-juridica.tab-pane{:role => "tabpanel"}
+      = render 'form_legal_person'
