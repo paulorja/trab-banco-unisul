@@ -1,16 +1,18 @@
 = render 'navigation'
 
-%h1= "Bem vindo ao banco #{@person.get_account_name}"
+.container-fluid
+  %h1= "Bem vindo, #{@person.get_account_name}"
 
-%h3 Suas contas
+  %h3 Suas contas
 
-%table
-  %tr
-    %th Número
-    %th Agência
-    %th
-- @person.accounts.each do |account|
-  %tr
-    %td= ac_number account
-    %td= account.agency.nome
-    %td= link_to 'Ver conta', account_path(account)
+  .row
+    - @person.accounts.each do |account|
+      .col-md-4
+        = render 'account', { account: account }
+
+  %h3 Contas que você é sócio
+
+  .row
+    - @person.partners.each do |partner|
+      .col-md-4
+        = render 'account', { account: partner.account }

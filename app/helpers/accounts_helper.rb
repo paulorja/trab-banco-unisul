@@ -27,4 +27,10 @@ module AccountsHelper
     account.tipo
   end
 
+  def monetize(number)
+    number = number.to_f
+
+    "R$#{number.round(2)}"
+  end
+
 end

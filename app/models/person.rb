@@ -1,6 +1,7 @@
 class Person < ActiveRecord::Base
 
   has_many :accounts
+  has_many :partners
   has_one :legal_person
   has_one :physical_person
   

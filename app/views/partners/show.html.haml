@@ -1,0 +1,14 @@
+= render 'manager/navigation'
+
+%p#notice= notice
+
+%p
+  %b Person:
+  = @partner.person
+%p
+  %b Account:
+  = @partner.account
+
+= link_to 'Edit', edit_partner_path(@partner)
+\|
+= link_to 'Back', partners_path

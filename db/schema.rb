@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161130225939) do
+ActiveRecord::Schema.define(version: 20161201015344) do
 
   create_table "account_operations", force: :cascade do |t|
     t.integer  "account_id", limit: 4
@@ -75,6 +75,16 @@ ActiveRecord::Schema.define(version: 20161130225939) do
     t.datetime "updated_at",             null: false
   end
 
+  create_table "partners", force: :cascade do |t|
+    t.integer  "person_id",  limit: 4
+    t.integer  "account_id", limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "partners", ["account_id"], name: "index_partners_on_account_id", using: :btree
+  add_index "partners", ["person_id"], name: "index_partners_on_person_id", using: :btree
+
   create_table "people", force: :cascade do |t|
     t.integer  "tipo",       limit: 4
     t.datetime "created_at",           null: false
@@ -100,6 +110,8 @@ ActiveRecord::Schema.define(version: 20161130225939) do
   add_foreign_key "accounts", "people"
   add_foreign_key "legal_people", "addresses"
   add_foreign_key "legal_people", "people"
+  add_foreign_key "partners", "accounts"
+  add_foreign_key "partners", "people"
   add_foreign_key "physical_people", "addresses"
   add_foreign_key "physical_people", "people"
 end
